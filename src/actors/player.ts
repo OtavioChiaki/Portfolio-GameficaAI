@@ -270,6 +270,40 @@ export class Player extends Actor {
             }
 
         })
+
+
+        engine.input.keyboard.on("press", (event) => {
+            if (event.key == Keys.F && this.temObjetoProximo) {
+              if (this.ultimoColisor?.owner.name == "mesa_stand_a") {
+                console.log("essa é a mesa A");
+
+                engine.goToScene("case", {
+                    sceneActivationData: {
+                        nomeDoActor: this.ultimoColisor?.owner.name
+                    }
+                })
+              }
+              if (this.ultimoColisor?.owner.name == "mesa_stand_b") {
+                console.log("essa é a mesa B");
+
+                engine.goToScene("case", {
+                    sceneActivationData:{
+                        nomeDoActor: this.ultimoColisor?.owner.name
+                    }
+                })
+                
+              }
+              if (this.ultimoColisor?.owner.name == "mesa_stand_c") {
+                console.log("essa é a mesa C");
+
+                engine.goToScene("case", {
+                    sceneActivationData:{
+                        nomeDoActor: this.ultimoColisor?.owner.name
+                    }
+                })
+              }
+            }
+        })
     }
 
     onPreCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
@@ -286,7 +320,7 @@ export class Player extends Actor {
             // Marcar que o objeto não está próximo
             this.temObjetoProximo = false
 
-            console.log("Está longe");            
+            // console.log("Está longe");            
         }
     }
     

@@ -8,13 +8,20 @@ export class expoScene extends Scene {
         return new FadeInOut({
             direction: direction,
             color: Color.Black,
-            duration: 1000
+            duration: 100
         })
     }
 
     onInitialize(engine: Engine<any>): void {
         // Ativar o modo de Debug
         engine.toggleDebug()
+
+        let musicaFundo = Resources.RitmadaBGM
+
+        musicaFundo.loop = true
+        musicaFundo.play(0.5)
+
+
         
         // Carregar o mapa
         let tiledMap = Resources.Mapa
